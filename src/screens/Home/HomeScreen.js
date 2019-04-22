@@ -8,7 +8,8 @@ import {
   ScrollView,
   TouchableOpacity,
   Modal,
-  TextInput
+  TextInput,
+  Button
 } from "react-native";
 import wifi from "react-native-android-wifi";
 import styles from "./HomeScreenStyleSheet";
@@ -16,6 +17,9 @@ import PrimaryButton from "../../components/PrimaryButton";
 import ConnectedModal from "../../components/ConnectedModal";
 
 export default class HomeScreen extends Component {
+  static navigationOptions = {
+    headerTitle: "Home"
+  };
   constructor(props) {
     super(props);
     this.state = {
@@ -139,6 +143,11 @@ export default class HomeScreen extends Component {
               />
             )}
           </View>
+          <PrimaryButton
+            style={styles.mb20}
+            onPress={() => this.props.navigation.navigate("HiddenWifi")}
+            btnText="Connect Hidden Wifi"
+          />
 
           <PrimaryButton
             onPress={this.getWifiNetworksOnPress.bind(this)}
