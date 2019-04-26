@@ -143,16 +143,21 @@ export default class HomeScreen extends Component {
               />
             )}
           </View>
-          <PrimaryButton
-            style={styles.mb20}
-            onPress={() => this.props.navigation.navigate("HiddenWifi")}
-            btnText="Connect Hidden Wifi"
-          />
-
+          <View style={[styles.row, styles.mb20]}>
+            <PrimaryButton
+              onPress={() => this.props.navigation.navigate("HiddenWifi")}
+              btnText="Connect Hidden Wifi"
+            />
+            <PrimaryButton
+              onPress={() => this.props.navigation.navigate("Admin")}
+              btnText="Admin"
+            />
+          </View>
           <PrimaryButton
             onPress={this.getWifiNetworksOnPress.bind(this)}
             btnText="Show wifi List"
           />
+
           <ScrollView>{this.renderWifiList()}</ScrollView>
         </View>
         <ConnectedModal
